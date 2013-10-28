@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up
+		static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+
+	<!-- Standard Spring MessageSource implementation for message externalization
+		and internationalization -->
+	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basename" value="Messages" />
+	</beans:bean>
+
+	<!-- Thymeleaf-specific artifacts, TemplateResolver <- TemplateEngine <- ViewResolver -->
+
+	<beans:bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".html" />
+		<beans:property name="templateMode" value="HTML5" />
+		<beans:property name="cacheable" value="false" />
+	</beans:bean>
+
+	<beans:bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
+		<beans:property name="templateResolver" ref="templateResolver" />
+	</beans:bean>
+
+	<beans:bean id="viewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+		<beans:property name="templateEngine" ref="templateEngine" />
+		<beans:property name="characterEncoding" value="UTF-8" />
+	</beans:bean>
+
+	<context:component-scan base-package="me.smartoffice.assistant" />
+
+</beans:beans>

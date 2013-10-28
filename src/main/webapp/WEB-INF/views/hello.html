@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html xmlns:th="http://www.thymeleaf.org" class="no-js"><!--<![endif]-->
+    <head th:substituteby="fragments/head::head-default">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Office Assistant</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="../../css/global.css" th:href="@{/css/global.css}" />
+        <script src="../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+        <script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Hawk</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">登录</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form method="post" action="">
+                                        <div class="form-group">
+                                            <label for="email">邮箱账号</label>
+                                            <input type="text" name="email" class="form-control" placeholder="请输入您的邮箱账号" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">登录密码</label>
+                                            <input type="password" name="password" class="form-control" placeholder="请输入您的登录密码" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-success col-xs-12 col-md-12" value="登录" />
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/register">注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" th:substituteby="fragments/footer::footer-default">
+            <footer>
+                <p>&copy; 2013 Hawk</p>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html xmlns:th="http://www.thymeleaf.org" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html xmlns:th="http://www.thymeleaf.org" class="no-js"><!--<![endif]-->
+    <head th:substituteby="fragments/head::head-default">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Office Assistant</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="../../css/global.css" th:href="@{/css/global.css}" />
+        <script src="../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+        <script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <div class="container" th:fragment="footer-default">
+            <footer>
+                <p>&copy; 2013 Hawk</p>
+            </footer>
+        </div>
+    </body>
+</html>
